@@ -1,4 +1,4 @@
-# DATtoGeoJSON
+# FEB Default Setter
 
 A simple Python-based vidmap default setter for use with [FE-BUDDY](https://github.com/Nikolai558/FE-BUDDY).
 
