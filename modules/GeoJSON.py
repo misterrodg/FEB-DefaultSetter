@@ -12,4 +12,4 @@ class GeoJSON:
             data = json.load(geoJsonFile)
             data['features'].insert(0,self.defaults)
             with open(self.outputFileName, "w") as outputFile:
-                json.dump(data,outputFile)
+                json.dump(data,outputFile,separators=(',', ':'))
