@@ -5,9 +5,9 @@ from modules.FileHandler import FileHandler
 from modules.GeoJSON import GeoJSON
 
 
-def processDefaults(sourceDir, fileName):
+def processDefaults(filePath):
     print("\nGetting Defaults from FEB Defaults File")
-    febDefaults = FEBDefaults(sourceDir, fileName)
+    febDefaults = FEBDefaults(filePath)
     return febDefaults.defaults
 
 
@@ -54,16 +54,17 @@ def main():
     useSourceLocal = True
     outputDir = OUTPUT_DIR
     useOutputLocal = True
+    febDefaults = "./" + sourceDir + "/" + FEB_DEFAULTS
     if args.sourcedir != None:
         sourceDir = args.sourcedir
         useSourceLocal = False
     if args.outputdir != None:
         outputDir = args.outputdir
         useOutputLocal = False
-    febDefaults = args.defaultsfile if args.defaultsfile != None else FEB_DEFAULTS
+    febDefaults = args.defaultsfile if args.defaultsfile != None else febDefaults
     print("\nInitializing DefaultSetter")
     # Read the defaults from the FEB List
-    defaultsArray = processDefaults(sourceDir, febDefaults)
+    defaultsArray = processDefaults(febDefaults)
     # Process the files from the FEB List
     processFiles(sourceDir, useSourceLocal, outputDir, useOutputLocal, defaultsArray)
 
