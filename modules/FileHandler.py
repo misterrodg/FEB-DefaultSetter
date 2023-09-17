@@ -5,28 +5,30 @@ class FileHandler:
     def __init__(self):
         self.localPath = os.getcwd()
 
-    def checkDir(self, subdirPath):
+    def checkDir(self, subdirPath, useLocal=True):
         result = False
-        dirPath = self.localPath + "/" + subdirPath
+        dirPath = self.localPath + "/" + subdirPath if useLocal == True else subdirPath
         os.makedirs(name=dirPath, exist_ok=True)
         if os.path.exists(dirPath):
             result = True
         return result
 
-    def deleteAllInSubdir(self, fileType, subdirPath=None):
+    def deleteAllInSubdir(self, fileType, subdirPath=None, useLocal=True):
         # As it stands, this will only ever delete items in the named subfolder where this script runs.
         # Altering this function could cause it to delete the entire contents of other folders where you wouldn't want it to.
         # Alter this at your own risk.
         if subdirPath != None:
-            deletePath = self.localPath + "/" + subdirPath
+            deletePath = (
+                self.localPath + "/" + subdirPath if useLocal == True else subdirPath
+            )
             for f in os.listdir(deletePath):
                 if f.endswith(fileType):
                     os.remove(os.path.join(deletePath, f))
 
-    def searchForType(self, fileType, subdirPath=None):
+    def searchForType(self, fileType, subdirPath=None, useLocal=True):
         result = []
-        searchPath = self.localPath
-        if subdirPath != None:
+        searchPath = self.localPath if useLocal == True else subdirPath
+        if subdirPath != None and useLocal == True:
             searchPath += "/" + subdirPath
         for (dirpath, subdirs, files) in os.walk(searchPath):
             result.extend(os.path.join(dirpath, f)

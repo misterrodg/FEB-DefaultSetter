@@ -2,8 +2,8 @@ import json
 
 class GeoJSON:
     def __init__(self, sourceFolder, outputFolder, fileName, defaults):
-        self.fileName = "./" + sourceFolder + "/" + fileName + ".geojson"
-        self.outputFileName = "./" + outputFolder + "/" + fileName + ".geojson"
+        self.fileName = sourceFolder + "/" + fileName + ".geojson"
+        self.outputFileName = outputFolder + "/" + fileName + ".geojson"
         self.defaults = json.loads(defaults)
         self.read()
 

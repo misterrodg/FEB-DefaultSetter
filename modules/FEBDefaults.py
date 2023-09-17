@@ -1,6 +1,6 @@
 class FEBDefaults:
     def __init__(self, sourceFolder, fileName):
-        self.defaultFileName = "./" + sourceFolder + "/" + fileName + ".txt"
+        self.defaultFileName = sourceFolder + "/" + fileName
         self.defaults = []
         self.read()
 
