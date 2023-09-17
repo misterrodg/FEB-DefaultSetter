@@ -1,6 +1,6 @@
 class FEBDefaults:
-    def __init__(self, sourceFolder, fileName):
-        self.defaultFileName = sourceFolder + "/" + fileName
+    def __init__(self, filePath):
+        self.defaultFilePath = filePath
         self.defaults = []
         self.read()
 
@@ -11,7 +11,7 @@ class FEBDefaults:
     def read(self):
         currentFile = ""
         currentDefaults = ""
-        with open(self.defaultFileName) as lines:
+        with open(self.defaultFilePath) as lines:
             for line in lines:
                 if line.endswith(".geojson\n"):
                     currentFile = line.strip()
