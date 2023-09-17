@@ -22,7 +22,9 @@ Only imports are JSON, and OS, so it should run on a standard Python implementat
 
 Want to contribute? Check out the [Open Issues](https://github.com/misterrodg/FEB-DefaultSetter/issues), fork, and open a [Pull Request](https://github.com/misterrodg/FEB-DefaultSetter/pulls).
 
-Additional contributors will be listed here.
+## Additional Contributors
+
+[Nikolai558](https://github.com/Nikolai558) - Compact JSON Formatting
 
 # License
 
