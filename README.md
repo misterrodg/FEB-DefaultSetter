@@ -38,11 +38,11 @@ Example:
 --outputdir "/Users/kyle/Documents"
 ```
 
-3. `--defaultsfile` - Sets the filename of the defaults file.
+3. `--defaultsfile` - Sets the filepath of the defaults file.
 
 ```
 Example:
---defaultsfile "vNAS_Defaults.txt"
+--defaultsfile "/Users/kyle/Downloads/vNAS_Defaults.txt"
 ```
 
 # Contributions
