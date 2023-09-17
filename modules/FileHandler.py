@@ -30,9 +30,10 @@ class FileHandler:
         searchPath = self.localPath if useLocal == True else subdirPath
         if subdirPath != None and useLocal == True:
             searchPath += "/" + subdirPath
-        for (dirpath, subdirs, files) in os.walk(searchPath):
-            result.extend(os.path.join(dirpath, f)
-                          for f in files if f.endswith(fileType))
+        for dirpath, subdirs, files in os.walk(searchPath):
+            result.extend(
+                os.path.join(dirpath, f) for f in files if f.endswith(fileType)
+            )
         return result
 
     def splitFolderFile(self, fullPath, subdirPath=None):
@@ -41,6 +42,6 @@ class FileHandler:
         searchPath = self.localPath
         if subdirPath != None:
             searchPath += "/" + subdirPath
-        result.append(split[0].replace(searchPath, ''))
+        result.append(split[0].replace(searchPath, ""))
         result.append(split[1])
         return result

@@ -4,6 +4,7 @@ from modules.FEBDefaults import FEBDefaults
 from modules.FileHandler import FileHandler
 from modules.GeoJSON import GeoJSON
 
+
 def processDefaults(sourceDir, fileName):
     print("\nGetting Defaults from FEB Defaults File")
     febDefaults = FEBDefaults(sourceDir, fileName)
@@ -17,16 +18,18 @@ def processFiles(sourceDir, useSourceLocal, outputDir, useOutputLocal, defaultsA
     fileList = fileHandler.searchForType(".geojson", sourceDir, useSourceLocal)
     print(f"Checking in {sourceDir} with useSourceLocal {useSourceLocal}")
     numFiles = str(len(fileList))
-    print("Found " + numFiles + " .geojson files in ./" + sourceDir)
+    print(f"Found {numFiles} .geojson files in {sourceDir}")
     fileCount = 0
     for f in fileList:
         fileData = fileHandler.splitFolderFile(f, sourceDir)
         folder = fileData[0]
         fileName = fileData[1].replace(".geojson", "")
-        defaults = next((item for item in defaultsArray if item["fileName"] == fileData[1]), False)
+        defaults = next(
+            (item for item in defaultsArray if item["fileName"] == fileData[1]), False
+        )
         if defaults:
-            print("[" + str(fileCount + 1) + "/" + numFiles + "] " + "Processing " + fileName + ".geojson")
-            GeoJSON(sourceDir,outputDir,fileName, defaults["default"])
+            print(f"[{str(fileCount + 1)}/{numFiles}] Processing {fileName}.geojson")
+            GeoJSON(sourceDir, outputDir, fileName, defaults["default"])
             fileCount += 1
     print("\n>>>>> Defaults are now set. Files located in " + outputDir + "<<<<<\n")
 

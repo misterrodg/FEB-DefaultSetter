@@ -4,7 +4,7 @@ class FEBDefaults:
         self.defaults = []
         self.read()
 
-    def add(self,fileName,default):
+    def add(self, fileName, default):
         newItem = {"fileName": fileName, "default": default}
         self.defaults.append(newItem)
 
@@ -15,10 +15,10 @@ class FEBDefaults:
             for line in lines:
                 if line.endswith(".geojson\n"):
                     currentFile = line.strip()
-                if line.startswith("{\"type\":\"Feature\","):
-                    withoutComma = line.rstrip(',\n')
+                if line.startswith('{"type":"Feature",'):
+                    withoutComma = line.rstrip(",\n")
                     currentDefaults = withoutComma.strip()
                 if currentFile != "" and currentDefaults != "":
-                    self.add(currentFile,currentDefaults)
+                    self.add(currentFile, currentDefaults)
                     currentFile = ""
                     currentDefaults = ""
