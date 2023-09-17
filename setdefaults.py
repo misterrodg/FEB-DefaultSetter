@@ -16,7 +16,6 @@ def processFiles(sourceDir, useSourceLocal, outputDir, useOutputLocal, defaultsA
     fileHandler.checkDir(outputDir, useOutputLocal)
     fileHandler.deleteAllInSubdir(".geojson", outputDir, useOutputLocal)
     fileList = fileHandler.searchForType(".geojson", sourceDir, useSourceLocal)
-    print(f"Checking in {sourceDir} with useSourceLocal {useSourceLocal}")
     numFiles = str(len(fileList))
     print(f"Found {numFiles} .geojson files in {sourceDir}")
     fileCount = 0
