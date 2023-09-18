@@ -1,5 +1,8 @@
 # FEB Default Setter
 
+**ARCHIVED**
+*This repository has been archived as it has been largely taken over by the [FE-ASSISTANT](https://github.com/KSanders7070/FE-ASSISTANT) project. It will still work, but is not being actively developed.*
+
 A simple Python-based vidmap default setter for use with [FE-BUDDY](https://github.com/Nikolai558/FE-BUDDY).
 
 ## Requirements
